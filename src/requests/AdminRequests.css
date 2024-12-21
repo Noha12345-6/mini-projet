@@ -1,0 +1,36 @@
+.admin-requests {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .requests-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .requests-table th,
+  .requests-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .requests-table th {
+    background-color: #f2f2f2;
+    text-align: left;
+  }
+  
+  .requests-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .requests-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .requests-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #4CAF50;
+    color: white;
+  }
+  

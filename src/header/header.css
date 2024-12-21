@@ -1,0 +1,55 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #2d3e50; /* Couleur de fond du Header */
+    color: white;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  .logo {
+    flex: 1;
+  }
+  
+  .logo-image {
+    width: 50px; /* Taille du logo */
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .welcome-message {
+    flex: 2;
+    text-align: center;
+  }
+  
+  .welcome-message h1 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: 600;
+  }
+  
+  .logout-button {
+    flex: 1;
+    text-align: right;
+  }
+  
+  .logout-button button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-button button:hover {
+    background-color: #e53935; /* Changement de couleur au survol */
+  }
+  
+  .logout-button button:focus {
+    outline: none;
+  }

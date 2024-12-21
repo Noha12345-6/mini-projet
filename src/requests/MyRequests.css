@@ -1,0 +1,99 @@
+/* Style pour le bouton Annuler */
+.cancel-button {
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cancel-button:hover {
+    background-color: #c0392b;
+  }
+  
+  .cancel-button:disabled {
+    background-color: #dcdcdc;
+    cursor: not-allowed;
+  }
+/* Container principal */
+.requests-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+  }
+  
+  .error-message {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .requests-list {
+    margin-top: 20px;
+  }
+  
+  .request-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .request-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  h3 {
+    font-size: 20px;
+    color: #2c3e50;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .status {
+    font-weight: bold;
+  }
+  
+  .status.en-attente {
+    color: orange;
+  }
+  
+  .status.approuvée {
+    color: green;
+  }
+  
+  .status.rejetee {
+    color: red;
+  }
+  
+  /* Responsivité */
+  @media (max-width: 768px) {
+    .requests-container {
+      padding: 15px;
+    }
+  
+    .request-card {
+      padding: 15px;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  }
+    
