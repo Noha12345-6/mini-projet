@@ -8,7 +8,7 @@ const Details = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(https://670ed5b73e7151861655eaa3.mockapi.io/Stagiaire/${id})
+    fetch(`https://670ed5b73e7151861655eaa3.mockapi.io/Stagiaire/${id}`)
       .then((response) => {
         if (!response.ok) throw new Error('Erreur lors de la récupération des détails.');
         return response.json();

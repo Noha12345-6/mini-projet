@@ -2,32 +2,28 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../nav/nav.css';
-const NavigationBar = ({action}) => {
-   
+
+const NavigationBar = ({ action }) => {
   const user = useSelector((state) => state.user);
+  
   return (
     <nav className="navbar">
       <ul className="nav-list">
         {!user.admin && (
           <>
             <li>
-             
-            <button onClick={() => action('profile')}>Voir le profil</button>
-             
+              <button onClick={() => action('profile')}>Voir le profil</button>
             </li>
             <li>
-             
-            <button onClick={() => action('modifier')}>Modifier</button>
+              <button onClick={() => action('modifier')}>Modifier</button>
             </li>
             <li>
-               <Link to={`/add-request/${user.id}`}>Ajouter une Demande</Link>
+              <Link to={`/add-request/${user.id}`}>Ajouter une Demande</Link>
             </li>
             <li>
               <Link to={`/my-requests/${user.id}`}>Mes Demandes</Link>
             </li>
-
-
-
+          </>
         )}
 
         {user.admin && (

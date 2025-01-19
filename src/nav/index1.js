@@ -24,7 +24,7 @@ const Index = () => {
           {!user.admin && (
             <>
               <div className="accueil-card">
-                <Link to="/profile" style={styles.card}>
+                <Link to="#" style={styles.card}>
                   <img src={profileIcon} alt="Mon Profil" style={styles.cardImage} />
                   <h3 style={styles.cardTitle}>Mon Profil</h3>
                   <p style={styles.cardDescription}>Consultez et modifiez vos informations personnelles.</p>
@@ -32,7 +32,7 @@ const Index = () => {
               </div>
 
               <div className="accueil-card">
-                <Link to="/resources" style={styles.card}>
+                <Link to="#" style={styles.card}>
                   <img src={resourceIcon} alt="Ressources" style={styles.cardImage} />
                   <h3 style={styles.cardTitle}>Ressources</h3>
                   <p style={styles.cardDescription}>Accédez à des documents et outils utiles pour votre parcours.</p>
@@ -40,7 +40,7 @@ const Index = () => {
               </div>
 
               <div className="accueil-card">
-                <Link to="/help" style={styles.card}>
+                <Link to="#" style={styles.card}>
                   <img src={helpIcon} alt="Assistance" style={styles.cardImage} />
                   <h3 style={styles.cardTitle}>Assistance</h3>
                   <p style={styles.cardDescription}>Trouvez des réponses à vos questions et obtenez de l'aide.</p>

@@ -1,42 +1,66 @@
+/* Footer principal */
 .footer {
-    background-color: #007bff; /* Bleu élégant */
-    padding: 20px;
-    text-align: center;
-    color: #fff;
-    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #2d3e50; /* Couleur sombre cohérente avec la navigation */
+  padding: 20px;
+  text-align: center;
+  color: #f8f9fa; /* Texte clair pour le contraste */
+  border-top: 2px solid #1abc9c; /* Ligne de séparation subtile */
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+/* Adresse dans le footer */
+.footer-address {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color:white
+}
+
+/* Liens sociaux dans le footer */
+.footer-social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #f8f9fa;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.footer-link:hover {
+  background: linear-gradient(90deg, #1abc9c, #16a085);
+  color: #ffffff;
+  transform: scale(1.1);
+  box-shadow: 0px 6px 12px rgba(26, 188, 156, 0.4);
+}
+
+/* Icônes dans les liens sociaux */
+.footer-icon {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-social-links {
+    flex-direction: column;
+    gap: 15px;
   }
-  
-  .footer p {
-    font-size: 16px;
-    margin-bottom: 15px;
-    font-weight: 600;
-  }
-  
-  .footer .social-links {
-    display: flex;
+
+  .footer-link {
     justify-content: center;
-    gap: 20px;
-    margin-top: 10px;
   }
-  
-  .footer .social-links a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s;
-  }
-  
-  .footer .social-links a:hover {
-    background-color: #0056b3; /* Couleur plus sombre au survol */
-    transform: scale(1.1);
-  }
-  
-  .footer .social-links i {
-    margin-right: 8px;
-    font-size: 18px;
-  }
+}
