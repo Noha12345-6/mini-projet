@@ -8,13 +8,9 @@ const NavigationBar = ({action}) => {
   return (
     <nav className="navbar">
       <ul className="nav-list">
-        <li>
-          <Link to="/">Accueil</Link>
-        </li>
         {!user.admin && (
           <>
             <li>
-              
              
             <button onClick={() => action('profile')}>Voir le profil</button>
              
@@ -24,12 +20,14 @@ const NavigationBar = ({action}) => {
             <button onClick={() => action('modifier')}>Modifier</button>
             </li>
             <li>
-              <Link to={`/add-request/${user.id}`}>Ajouter une Demande</Link>
+               <Link to={`/add-request/${user.id}`}>Ajouter une Demande</Link>
             </li>
             <li>
               <Link to={`/my-requests/${user.id}`}>Mes Demandes</Link>
             </li>
-          </>
+
+
+
         )}
 
         {user.admin && (
