@@ -1,6 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Login from './Authentification/login';
 import CreateAccount from "./account/createAccount";
@@ -13,32 +12,65 @@ import Dashboard from './components Admin/Dashboard';
 import AddRequest from './requests/AddRequest';  
 import MyRequests from './requests/MyRequests';  
 import AdminRequests from './requests/AdminRequests'; 
-
- 
+import Header from './header/header';
+import NavigationBar from './nav/navigation';
+import Footer from './footer';
+import VoirMonProfile from './voirProfil';
 
 const App = () => {
- 
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-       
+     
+        {/* Pages sans NavigationBar et Footer */}
         <Route path="/login" element={<Login />} />
         <Route path="/create" element={<CreateAccount />} />
         <Route path="/user/:id" element={<Layout />} />
-        <Route path="/admin/liste" element={<ListeUser />} />
-        <Route path="/admin/ajouter" element={<AjouterUtilisateur />} />
-
-        <Route path="/admin/details/:id" element={<Details />} />
-        <Route path="/admin/modifier/:id" element={<ModifierUser />} />
-        <Route path="/admin/dashboard" element={<Dashboard />} />
-          <Route path="/add-request/:userId" element={<AddRequest />} />
-          <Route path="/my-requests/:userId" element={<MyRequests />} />
-
-        <Route path="/admin-requests" element={<AdminRequests />} />
-
         
+        {/* Routes avec uniquement Header et Footer */}
+        <Route 
+          path="/add-request/:userId" 
+          element={
+            <>
+              <Header />
+              <AddRequest />
+              <Footer />
+            </>
+          }
+        />
+        <Route 
+          path="/my-requests/:userId" 
+          element={
+            <>
+              <Header />
+              <MyRequests />
+              <Footer />
+            </>
+          }
+        />
+        
+        {/* Pages avec NavigationBar et Footer */}
+        <Route
+          path="/*"
+          element={
+            <>
+              <Header />
+              <NavigationBar />
+              <Routes>
+                <Route path="/admin/liste" element={<ListeUser />} />
+                <Route path="/admin/ajouter" element={<AjouterUtilisateur />} />
+                <Route path="/admin/details/:id" element={<Details />} />
+                <Route path="/admin/modifier/:id" element={<ModifierUser />} />
+                <Route path="/admin/dashboard" element={<Dashboard />} />
+                <Route path="/admin-requests" element={<AdminRequests />} />
+                <Route path="/MonProfil" element={<VoirMonProfile />} />
+              </Routes>
+              <Footer />
+            </>
+          }
+        />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 };
 
