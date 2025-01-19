@@ -1,127 +1,124 @@
-/* Login.css */
-body {
-    background-color: #f4f4f4; 
-    color: #000000; 
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  .text-center {
-    color: white;
-    font-size: 24px; 
-    font-weight: bold; 
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); 
-  }
-  .span {
-    display: inline-block; 
-    padding: 10px 20px;
-    margin-top: 20px;
-    text-align: center;
-    background-color: #030404; 
-    color: white; 
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none; 
-    border-radius: 5px; 
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .span:hover {
-    background-color: #cbd4de; 
-    transform: scale(1.05);
-  }
-  
-  .span:active {
-    transform: scale(0.95); 
-  }
-  
-  
-  
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
+/* Conteneur principal centré */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Utilisation de la hauteur de la fenêtre */
+  background-color: #f4f7fa; /* Couleur de fond claire */
+}
+
+/* Formulaire */
+.form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 25rem; /* Limite la largeur du formulaire */
+  padding: 2rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.form:hover {
+  transform: translateY(-5px); /* Effet de survol pour plus de dynamisme */
+}
+
+/* En-tête du formulaire */
+.header {
+  background-color: #42a5f5;
+  color: #fff;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Style des champs de saisie */
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Champ de saisie */
+.input {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus {
+  border-color: #42a5f5;
+  outline: none;
+}
+
+/* Message d'erreur */
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Bouton de soumission */
+.sigin-btn {
+  background-color: #42a5f5;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+ margin-top: 2rem;
+}
+
+.sigin-btn:hover {
+  background-color: #1e88e5;
+}
+
+/* Lien pour créer un compte */
+.signup-link {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.signup-link a {
+  color: #42a5f5;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsivité : ajustements pour les petits écrans */
+@media (max-width: 480px) {
   .form {
-    background-color: #ffffff; 
-    padding: 30px;
-    width: 100%;
-    max-width: 450px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    width: 90%;
+    padding: 1.5rem;
   }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333; 
+  .header {
+    font-size: 1.2rem;
   }
-  
-  .flex-column {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .label {
-    color: #333; 
-    font-weight: 600;
-    font-size: 14px;
-  }
-  
-  .inputForm {
-    position: relative;
-  }
-  
   .input {
-    width: 100%;
-    height: 40px;
-    padding-left: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    color: #333;
+    font-size: 0.9rem;
   }
-  
-  .input:focus {
-    outline: none;
-    border-color: #2d79f3; 
+  .sigin-btn {
+    font-size: 0.9rem;
+    padding: 0.8rem;
   }
-  
-  .button-submit {
-    width: 100%;
-    background-color: #2d79f3;
-    border: none;
-    color: white;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button-submit:hover {
-    background-color: #1d5bb3; 
-  }
-  
-  .p {
-    text-align: center;
-    color: #333; 
-    font-size: 14px;
-    margin-top: 15px;
-  }
-  
-  .span {
-    font-size: 14px;
-    color: #2d79f3; 
-    font-weight: 500;
-    cursor: pointer;
-  }
-  
-  .error-message {
-    color: red;
-    font-size: 12px;
-    text-align: center;
-    margin-top: 10px;
-  }
+}
