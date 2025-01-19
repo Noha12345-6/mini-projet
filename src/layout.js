@@ -11,6 +11,7 @@ const Layout = () => {
   const [activeSection, setActiveSection] = useState(null); 
 
   return (
+    
     <div style={{ minHeight: '100vh', padding: '20px' }}>
       <Header />
       <NavigationBar action={setActiveSection} />
