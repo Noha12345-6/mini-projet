@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import './ModifierUser.css'; // Ajoutez votre fichier CSS
 
 const ModifierUser = () => {
   const { id } = useParams();
@@ -35,56 +36,84 @@ const ModifierUser = () => {
     })
       .then(() => {
         alert('Utilisateur modifié avec succès !');
-        navigate('/admin/liste'); 
+        navigate('/admin/liste');
       })
       .catch(() => alert('Erreur lors de la modification.'));
   };
 
   if (error) {
-    return <div>{error}</div>;
+    return <div className="error">{error}</div>;
   }
 
   return (
-    <div>
+    <div className="modifier-container">
       <h2>Modifier l'utilisateur</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Nom"
-          value={user.nom}
-          onChange={(e) => setUser({ ...user, nom: e.target.value })}
-        />
-        <input
-          type="text"
-          placeholder="Prénom"
-          value={user.prenom}
-          onChange={(e) => setUser({ ...user, prenom: e.target.value })}
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={user.email}
-          onChange={(e) => setUser({ ...user, email: e.target.value })}
-        />
-        <input
-          type="number"
-          placeholder="Âge"
-          value={user.age}
-          onChange={(e) => setUser({ ...user, age: e.target.value })}
-        />
-        <input
-          type="text"
-          placeholder="Couleur préférée"
-          value={user.couleur}
-          onChange={(e) => setUser({ ...user, couleur: e.target.value })}
-        />
-        <input
-          type="text"
-          placeholder="Pays"
-          value={user.Pays}
-          onChange={(e) => setUser({ ...user, Pays: e.target.value })}
-        />
-        <button type="submit">Modifier</button>
+      <form onSubmit={handleSubmit} className="modifier-form">
+        <div className="form-group">
+          <label htmlFor="nom">Nom</label>
+          <input
+            id="nom"
+            type="text"
+            placeholder="Nom"
+            value={user.nom}
+            onChange={(e) => setUser({ ...user, nom: e.target.value })}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="prenom">Prénom</label>
+          <input
+            id="prenom"
+            type="text"
+            placeholder="Prénom"
+            value={user.prenom}
+            onChange={(e) => setUser({ ...user, prenom: e.target.value })}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="Email"
+            value={user.email}
+            onChange={(e) => setUser({ ...user, email: e.target.value })}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="age">Âge</label>
+          <input
+            id="age"
+            type="number"
+            placeholder="Âge"
+            value={user.age}
+            onChange={(e) => setUser({ ...user, age: e.target.value })}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="couleur">Couleur préférée</label>
+          <input
+            id="couleur"
+            type="text"
+            placeholder="Couleur préférée"
+            value={user.couleur}
+            onChange={(e) => setUser({ ...user, couleur: e.target.value })}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="Pays">Pays</label>
+          <input
+            id="Pays"
+            type="text"
+            placeholder="Pays"
+            value={user.Pays}
+            onChange={(e) => setUser({ ...user, Pays: e.target.value })}
+          />
+        </div>
+        <button type="submit" className="submit-btn">Modifier</button>
       </form>
     </div>
   );

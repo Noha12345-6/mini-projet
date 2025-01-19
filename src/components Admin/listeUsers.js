@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import LigneUser from './ligneUser';
+import "./ListeUser.css"
+
 
 const ListeUser = () => {
   const [users, setUsers] = useState([]); 
@@ -7,7 +9,6 @@ const ListeUser = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [error, setError] = useState(null);
 
- 
   useEffect(() => {
     fetch('https://670ed5b73e7151861655eaa3.mockapi.io/Stagiaire')
       .then((response) => {
@@ -21,7 +22,6 @@ const ListeUser = () => {
       .catch((error) => setError(error.message));
   }, []);
 
-  
   const handleDelete = (id) => {
     fetch(`https://670ed5b73e7151861655eaa3.mockapi.io/Stagiaire/${id}`, {
       method: 'DELETE',
@@ -35,7 +35,6 @@ const ListeUser = () => {
       .catch(() => alert('Erreur lors de la suppression.'));
   };
 
- 
   const handleSearch = (e) => {
     const term = e.target.value.toLowerCase();
     setSearchTerm(term); 
@@ -50,33 +49,26 @@ const ListeUser = () => {
   };
 
   if (error) {
-    return <div>{error}</div>;
+    return <div className="error-message">{error}</div>;
   }
 
   if (filteredUsers.length === 0 && searchTerm === '') {
-    return <div>Aucun utilisateur trouvé.</div>;
+    return <div className="no-users">Aucun utilisateur trouvé.</div>;
   }
+
   return (
-    <div>
+    <div className="user-list-container">
       <h2>Liste des utilisateurs</h2>
 
-     
       <input
         type="text"
         placeholder="Rechercher par nom, prénom ou email"
         value={searchTerm}
         onChange={handleSearch}
-        style={{
-          marginBottom: '20px',
-          padding: '10px',
-          width: '100%',
-          borderRadius: '5px',
-          border: '1px solid #ccc',
-        }}
+        className="search-input"
       />
 
-     
-      <table>
+      <table className="users-table">
         <thead>
           <tr>
             <th>Nom</th>
