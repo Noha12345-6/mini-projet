@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeColor } from './store/actions';
-import './Modifier.css';  
+import './Modifier.css';
 
 const Modifier = () => {
-  const currentColor = useSelector((state) => state.user.couleur );
+  const currentColor = useSelector((state) => state.user.couleur);
   const [newColor, setNewColor] = useState(currentColor); 
   const dispatch = useDispatch();
-  const userId = useSelector((state) => state.user.id);  
+  const userId = useSelector((state) => state.user.id);
+
+  useEffect(() => {
+    setNewColor(currentColor); 
+  }, [currentColor]);
 
   const handleColorChange = () => {
     if (!userId) {
