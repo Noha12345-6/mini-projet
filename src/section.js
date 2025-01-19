@@ -31,5 +31,5 @@ const SectionContent = ({ children }) => {
     </div>
   );
 };
-
 export default SectionContent;
+

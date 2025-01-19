@@ -20,11 +20,9 @@ const Details = () => {
   if (error) {
     return <div className="error">{error}</div>;
   }
-
   if (!user) {
     return <div className="loading">Chargement des détails...</div>;
   }
-
   return (
     <div className="details-container">
       <h2 className="details-title">Détails de l'utilisateur</h2>

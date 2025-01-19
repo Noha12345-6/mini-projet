@@ -26,7 +26,8 @@ const NavigationBar = ({action}) => {
               <Link to={`/my-requests/${user.id}`}>Mes Demandes</Link>
             </li>
 
-          </>
+
+
         )}
 
         {user.admin && (
