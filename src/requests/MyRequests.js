@@ -14,8 +14,6 @@ const MyRequests = () => {
       setError('Utilisateur non identifié.');
       return;
     }
-
-   
     setIsLoading(true);
     axios
       .get(`http://localhost/ApiDemande/api.php?action=getUserRequests&user_id=${userId}`)

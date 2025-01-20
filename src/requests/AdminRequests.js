@@ -91,7 +91,12 @@ const AdminRequests = () => {
                   {request.statut === 'en attente' && (
                     <div>
                       <button onClick={() => changeRequestStatus(request.id, 'approuvée')}>Approuver</button>
-                      <button onClick={() => changeRequestStatus(request.id, 'rejetée')}>Rejeter</button>
+                      <button 
+                        onClick={() => changeRequestStatus(request.id, 'rejetée')} 
+                        className="reject-button"
+                      >
+                        Rejeter
+                      </button>
                     </div>
                   )}
                 </td>
