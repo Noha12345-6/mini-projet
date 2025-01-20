@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import Login from './Authentification/login';
 import CreateAccount from "./account/createAccount";
@@ -21,12 +21,14 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-     
+        {/* Route par défaut qui redirige vers la page de login */}
+        <Route path="/" element={<Navigate to="/login" />} />
+
         {/* Pages sans NavigationBar et Footer */}
         <Route path="/login" element={<Login />} />
         <Route path="/create" element={<CreateAccount />} />
         <Route path="/user/:id" element={<Layout />} />
-        
+
         {/* Routes avec uniquement Header et Footer */}
         <Route 
           path="/add-request/:userId" 

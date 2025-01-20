@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import profileIcon from '../images/profile.jpeg';
-import resourceIcon from '../images/resources.jpeg';
-import helpIcon from '../images/help.jpeg';
-import statistique from '../images/statistique.png'; 
-import liste from '../images/liste.jpeg';
-import ajouteruser from '../images/ajouteruser.png';
+import helpIcon from '../images/helpIcon.gif';
+import profil from "../images/profil.gif";
+import utilisateur from "../images/utilisateur.gif";
+import Monprofil from "../images/Monprofil.gif"
+import analyse from "../images/analyse.gif";
+import website from "../images/website.gif"
 const Index = () => {
   const user = useSelector((state) => state.user); 
 
@@ -25,7 +25,7 @@ const Index = () => {
             <>
               <div className="accueil-card">
                 <Link to="#" style={styles.card}>
-                  <img src={profileIcon} alt="Mon Profil" style={styles.cardImage} />
+                  <img src={Monprofil} alt="Mon Profil" style={styles.cardImage} />
                   <h3 style={styles.cardTitle}>Mon Profil</h3>
                   <p style={styles.cardDescription}>Consultez et modifiez vos informations personnelles.</p>
                 </Link>
@@ -33,7 +33,7 @@ const Index = () => {
 
               <div className="accueil-card">
                 <Link to="#" style={styles.card}>
-                  <img src={resourceIcon} alt="Ressources" style={styles.cardImage} />
+                  <img src={website} alt="Ressources" style={styles.cardImage} />
                   <h3 style={styles.cardTitle}>Ressources</h3>
                   <p style={styles.cardDescription}>Accédez à des documents et outils utiles pour votre parcours.</p>
                 </Link>
@@ -54,7 +54,7 @@ const Index = () => {
             <>
               <div className="accueil-card">
                 <Link to="/admin/dashboard" style={styles.card}>
-                  <img src={statistique} alt="Dashboard" style={styles.cardImage} />
+                  <img src={analyse} alt="Dashboard" style={styles.cardImage} />
                   <h3 style={styles.cardTitle}>Tableau de bord</h3>
                   <p style={styles.cardDescription}>Consultez les statistiques et la gestion de la plateforme.</p>
                 </Link>
@@ -62,7 +62,7 @@ const Index = () => {
 
               <div className="accueil-card">
                 <Link to="/admin/liste" style={styles.card}>
-                  <img src={liste} alt="Utilisateurs" style={styles.cardImage} />
+                  <img src={profil } alt="Utilisateurs" style={styles.cardImage} />
                   <h3 style={styles.cardTitle}>Liste des utilisateurs</h3>
                   <p style={styles.cardDescription}>Gérez les utilisateurs de la plateforme.</p>
                 </Link>
@@ -70,7 +70,7 @@ const Index = () => {
 
               <div className="accueil-card">
                 <Link to="/admin/ajouter" style={styles.card}>
-                  <img src={ajouteruser} alt="Ajouter Utilisateur" style={styles.cardImage} />
+                  <img src={utilisateur} alt="Ajouter Utilisateur" style={styles.cardImage} />
                   <h3 style={styles.cardTitle}>Ajouter un utilisateur</h3>
                   <p style={styles.cardDescription}>Ajoutez de nouveaux utilisateurs à la plateforme.</p>
                 </Link>

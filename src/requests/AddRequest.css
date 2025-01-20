@@ -6,6 +6,11 @@
   background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Remplir la hauteur de l'écran */
 }
 
 /* Titre du formulaire */
@@ -13,7 +18,7 @@
   font-size: 24px;
   margin-bottom: 20px;
   text-align: center;
-  color: #f65d5d;
+  color: #ef0707;
 }
 
 /* Message d'erreur */
@@ -27,6 +32,7 @@
 .form {
   display: flex;
   flex-direction: column;
+  width: 100%; /* S'assurer que le formulaire occupe toute la largeur du conteneur */
 }
 
 /* Groupe de formulaire */
