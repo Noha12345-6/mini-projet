@@ -12,10 +12,4 @@ export const setUser = (user) => ({
     type: 'CHANGE_COLOR',
     payload: color,
   });
-  export const setActiveSection = (section) => {
-    return {
-      type: 'SET_ACTIVE_SECTION',
-      payload: section,
-    };
-  };
  

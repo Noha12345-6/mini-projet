@@ -16,7 +16,7 @@ const MyRequests = () => {
     }
     setIsLoading(true);
     axios
-      .get(`http://localhost/ApiDemande/api.php?action=getUserRequests&user_id=${userId}`)
+      .get(`http://localhost/ApiDemande/api.php?action=getUserRequests&user_id=${userId}`) // URL mise à jour
       .then((response) => {
         console.log('Réponse API:', response.data);
         if (response.data.success && response.data.requests.length > 0) {
@@ -27,7 +27,6 @@ const MyRequests = () => {
         }
       })
       .catch((error) => {
-       
         setError('Une erreur est survenue. Veuillez réessayer.');
       })
       .finally(() => setIsLoading(false)); 
@@ -35,9 +34,8 @@ const MyRequests = () => {
 
   const handleDeleteRequest = (requestId) => {
     if (window.confirm('Êtes-vous sûr de vouloir supprimer cette demande ?')) {
-      axios.delete(`http://localhost/ApiDemande/api.php?action=deleteRequest&id=${requestId}`)
+      axios.delete(`http://localhost/ApiDemande/api.php?action=deleteRequest&id=${requestId}`) // URL mise à jour
         .then((response) => {
-          
           setRequests((prevRequests) => prevRequests.filter(request => request.id !== requestId));
           alert('La demande a été supprimée avec succès !');
         })

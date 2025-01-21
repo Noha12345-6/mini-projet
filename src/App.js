@@ -21,15 +21,15 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Route par défaut qui redirige vers la page de login */}
+       
         <Route path="/" element={<Navigate to="/login" />} />
 
-        {/* Pages sans NavigationBar et Footer */}
+       
         <Route path="/login" element={<Login />} />
         <Route path="/create" element={<CreateAccount />} />
         <Route path="/user/:id" element={<Layout />} />
 
-        {/* Routes avec uniquement Header et Footer */}
+       
         <Route 
           path="/add-request/:userId" 
           element={
@@ -51,7 +51,7 @@ const App = () => {
           }
         />
         
-        {/* Pages avec NavigationBar et Footer */}
+        
         <Route
           path="/*"
           element={

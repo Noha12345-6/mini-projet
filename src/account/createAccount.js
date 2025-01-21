@@ -186,7 +186,7 @@ const CreateAccount = () => {
         <span>ID</span>
       </label>
 
-      {/* Password and Confirm Password */}
+     
       <label>
         <input
           className="input"

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../store/actions';
-import './login.css'; // Assurez-vous que ce fichier contient le CSS adapté
+import './login.css'; 
 
 const Login = () => {
   const [email, setEmail] = useState('');

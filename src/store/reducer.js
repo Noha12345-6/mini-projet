@@ -24,8 +24,7 @@ const initialState = {
         return initialState;
       case 'CHANGE_COLOR':
         return { ...state, user: { ...state.user, couleur: action.payload } };
-        case 'SET_ACTIVE_SECTION':
-      return { ...state, activeSection: action.payload,}
+       
       default:
         return state;
     }

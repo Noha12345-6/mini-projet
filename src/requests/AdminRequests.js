@@ -10,10 +10,12 @@ const AdminRequests = () => {
   useEffect(() => {
     const fetchRequestsAndUsers = async () => {
       try {
+       
         const requestsResponse = await axios.get('http://localhost/ApiDemande/api.php?action=getAllRequests');
         console.log('Données des demandes:', requestsResponse.data);
         const requestsData = requestsResponse.data.requests || [];
     
+       
         const usersResponse = await axios.get('https://670ed5b73e7151861655eaa3.mockapi.io/Stagiaire');
         console.log('Données des utilisateurs:', usersResponse.data);
         const usersData = usersResponse.data;
@@ -34,11 +36,10 @@ const AdminRequests = () => {
     fetchRequestsAndUsers();
   }, []);
   
-  
 
   const changeRequestStatus = async (requestId, status) => {
     try {
-    
+      // Remplacement de l'URL de l'API des demandes par le nouveau URL
       const response = await axios.put(`http://localhost/ApiDemande/api.php/${requestId}`, {
         statut: status,
       });

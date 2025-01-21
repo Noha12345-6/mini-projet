@@ -1,146 +1,159 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import helpIcon from '../images/helpIcon.gif';
-import profil from "../images/profil.gif";
-import utilisateur from "../images/utilisateur.gif";
-import Monprofil from "../images/Monprofil.gif"
-import analyse from "../images/analyse.gif";
-import website from "../images/website.gif"
+import profil from '../images/profil.gif';
+import utilisateur from '../images/utilisateur.gif';
+import Monprofil from '../images/Monprofil.gif';
+import analyse from '../images/analyse.gif';
+import website from '../images/website.gif';
+
 const Index = () => {
-  const user = useSelector((state) => state.user); 
+  const user = useSelector((state) => state.user);
 
   return (
-    <div style={styles.container}>
-      <header style={styles.header}>
-        <p style={styles.subtitle}>
-          {user.admin ? "Gérez les utilisateurs et consultez les statistiques" : "Découvrez les fonctionnalités qui sont disponibles"}
-        </p>
-      </header>
+    <Container>
+      <Header>
+        <Subtitle>
+          {user.admin
+            ? 'Gérez les utilisateurs et consultez les statistiques'
+            : 'Découvrez les fonctionnalités qui sont disponibles'}
+        </Subtitle>
+      </Header>
 
-      <main style={styles.main}>
-        <div style={styles.cardContainer}>
-         
+      <Main>
+        <CardContainer>
           {!user.admin && (
             <>
-              <div className="accueil-card">
-                <Link to="#" style={styles.card}>
-                  <img src={Monprofil} alt="Mon Profil" style={styles.cardImage} />
-                  <h3 style={styles.cardTitle}>Mon Profil</h3>
-                  <p style={styles.cardDescription}>Consultez et modifiez vos informations personnelles.</p>
-                </Link>
-              </div>
+              <Card>
+                <StyledLink to="#">
+                  <Image src={Monprofil} alt="Mon Profil" />
+                  <Title>Mon Profil</Title>
+                  <Description>Consultez et modifiez vos informations personnelles.</Description>
+                </StyledLink>
+              </Card>
 
-              <div className="accueil-card">
-                <Link to="#" style={styles.card}>
-                  <img src={website} alt="Ressources" style={styles.cardImage} />
-                  <h3 style={styles.cardTitle}>Ressources</h3>
-                  <p style={styles.cardDescription}>Accédez à des documents et outils utiles pour votre parcours.</p>
-                </Link>
-              </div>
+              <Card>
+                <StyledLink to="#">
+                  <Image src={website} alt="Ressources" />
+                  <Title>Ressources</Title>
+                  <Description>Accédez à des documents et outils utiles pour votre parcours.</Description>
+                </StyledLink>
+              </Card>
 
-              <div className="accueil-card">
-                <Link to="#" style={styles.card}>
-                  <img src={helpIcon} alt="Assistance" style={styles.cardImage} />
-                  <h3 style={styles.cardTitle}>Assistance</h3>
-                  <p style={styles.cardDescription}>Trouvez des réponses à vos questions et obtenez de l'aide.</p>
-                </Link>
-              </div>
+              <Card>
+                <StyledLink to="#">
+                  <Image src={helpIcon} alt="Assistance" />
+                  <Title>Assistance</Title>
+                  <Description>Trouvez des réponses à vos questions et obtenez de l'aide.</Description>
+                </StyledLink>
+              </Card>
             </>
           )}
 
-          
           {user.admin && (
             <>
-              <div className="accueil-card">
-                <Link to="/admin/dashboard" style={styles.card}>
-                  <img src={analyse} alt="Dashboard" style={styles.cardImage} />
-                  <h3 style={styles.cardTitle}>Tableau de bord</h3>
-                  <p style={styles.cardDescription}>Consultez les statistiques et la gestion de la plateforme.</p>
-                </Link>
-              </div>
+              <Card>
+                <StyledLink to="/admin/dashboard">
+                  <Image src={analyse} alt="Dashboard" />
+                  <Title>Tableau de bord</Title>
+                  <Description>Consultez les statistiques et la gestion de la plateforme.</Description>
+                </StyledLink>
+              </Card>
 
-              <div className="accueil-card">
-                <Link to="/admin/liste" style={styles.card}>
-                  <img src={profil } alt="Utilisateurs" style={styles.cardImage} />
-                  <h3 style={styles.cardTitle}>Liste des utilisateurs</h3>
-                  <p style={styles.cardDescription}>Gérez les utilisateurs de la plateforme.</p>
-                </Link>
-              </div>
+              <Card>
+                <StyledLink to="/admin/liste">
+                  <Image src={profil} alt="Utilisateurs" />
+                  <Title>Liste des utilisateurs</Title>
+                  <Description>Gérez les utilisateurs de la plateforme.</Description>
+                </StyledLink>
+              </Card>
 
-              <div className="accueil-card">
-                <Link to="/admin/ajouter" style={styles.card}>
-                  <img src={utilisateur} alt="Ajouter Utilisateur" style={styles.cardImage} />
-                  <h3 style={styles.cardTitle}>Ajouter un utilisateur</h3>
-                  <p style={styles.cardDescription}>Ajoutez de nouveaux utilisateurs à la plateforme.</p>
-                </Link>
-              </div>
+              <Card>
+                <StyledLink to="/admin/ajouter">
+                  <Image src={utilisateur} alt="Ajouter Utilisateur" />
+                  <Title>Ajouter un utilisateur</Title>
+                  <Description>Ajoutez de nouveaux utilisateurs à la plateforme.</Description>
+                </StyledLink>
+              </Card>
             </>
           )}
-        </div>
-      </main>
-    </div>
+        </CardContainer>
+      </Main>
+    </Container>
   );
 };
 
-const styles = {
-  container: {
-    fontFamily: "'Roboto', sans-serif",
-    backgroundColor: '#f9f9f9',
-    minHeight: '100vh',
-    padding: '20px',
-  },
-  header: {
-    textAlign: 'center',
-    marginBottom: '40px',
-  },
-  subtitle: {
-    fontSize: '1.2rem',
-    color: '#555',
-    margin: '10px 0 0',
-  },
-  main: {
-    display: 'flex',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-    gap: '20px',
-  },
-  cardContainer: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    gap: '20px',
-    justifyContent: 'center',
-  },
-  card: {
-    backgroundColor: '#fff',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-    borderRadius: '10px',
-    textAlign: 'center',
-    textDecoration: 'none',
-    color: '#333',
-    padding: '20px',
-    width: '200px',
-    transition: 'transform 0.3s, box-shadow 0.3s',
-  },
-  cardImage: {
-    width: '100%',
-    height: '280px',
-    objectFit: 'cover',
-    borderRadius: '10px',
-  },
-  cardTitle: {
-    fontSize: '1.5rem',
-    margin: '15px 0 10px',
-    color: '#007bff',
-  },
-  cardDescription: {
-    fontSize: '1rem',
-    color: '#777',
-  },
-  cardHover: {
-    transform: 'scale(1.05)',
-    boxShadow: '0 6px 8px rgba(0, 0, 0, 0.15)',
-  },
-};
+// Styled-components
+const Container = styled.div`
+  font-family: 'Roboto', sans-serif;
+  background-color: #f3f4f6;
+  min-height: 100vh;
+  padding: 20px;
+`;
+
+const Header = styled.header`
+  text-align: center;
+  margin-bottom: 40px;
+`;
+
+const Subtitle = styled.p`
+  font-size: 1.2rem;
+  color: #555;
+`;
+
+const Main = styled.main`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+`;
+
+const CardContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+`;
+
+const Card = styled.div`
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  width: 250px;
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  padding: 20px;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+`;
+
+const Title = styled.h3`
+  font-size: 1.2rem;
+  color: #007bff;
+  margin: 15px 0;
+  text-align: center;
+`;
+
+const Description = styled.p`
+  font-size: 0.95rem;
+  color: #555;
+  text-align: center;
+`;
 
 export default Index;

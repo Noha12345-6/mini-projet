@@ -77,7 +77,7 @@ const Dashboard = () => {
       </PieChart>
     </div>
 
-    {/* Appliquer la classe bar-chart ici pour la carte contenant le graphique en barres */}
+   
     <div className="dashboard-card chart-card bar-chart">
       <h3>Répartition par Pays (Graphique en barres)</h3>
       <BarChart width={500} height={250} data={countriesData}>
