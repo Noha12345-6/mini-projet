@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './AdminRequests.css'; 
+import './AdminRequests.css';
 
 const AdminRequests = () => {
   const [requests, setRequests] = useState([]);
@@ -10,21 +10,22 @@ const AdminRequests = () => {
   useEffect(() => {
     const fetchRequestsAndUsers = async () => {
       try {
-       
-        const requestsResponse = await axios.get('http://localhost/ApiDemande/api.php?action=getAllRequests');
+        
+        const requestsResponse = await axios.get('https://67575d82c0a427baf94c94da.mockapi.io/dev101/ApiDemande/apiphp/demande');
         console.log('Données des demandes:', requestsResponse.data);
-        const requestsData = requestsResponse.data.requests || [];
-    
+        const requestsData = requestsResponse.data || [];
+
        
         const usersResponse = await axios.get('https://670ed5b73e7151861655eaa3.mockapi.io/Stagiaire');
         console.log('Données des utilisateurs:', usersResponse.data);
         const usersData = usersResponse.data;
-    
+
+        
         const combinedData = requestsData.map(request => {
           const user = usersData.find(user => String(user.id) === String(request.user_id));
           return { ...request, userName: user ? `${user.nom} ${user.prenom}` : 'Utilisateur inconnu' };
         });
-    
+
         setRequests(combinedData);
       } catch (err) {
         console.error('Erreur:', err);
@@ -35,24 +36,25 @@ const AdminRequests = () => {
     };
     fetchRequestsAndUsers();
   }, []);
-  
 
-  const changeRequestStatus = async (requestId, status) => {
+  const changeRequestStatus = async (requestId, status, action) => {
     try {
-      // Remplacement de l'URL de l'API des demandes par le nouveau URL
-      const response = await axios.put(`http://localhost/ApiDemande/api.php/${requestId}`, {
+      const url = `https://67575d82c0a427baf94c94da.mockapi.io/dev101/ApiDemande/apiphp/demande/${requestId}`;
+
+      const response = await axios.put(url, {
         statut: status,
+        action: action,
       });
 
-      console.log('API Response:', response.data); 
+      console.log('Réponse API:', response.data);
 
-      if (response.data.message) {
+      if (response.data) {
         setRequests((prevRequests) =>
           prevRequests.map((request) =>
             request.id === requestId ? { ...request, statut: status } : request
           )
         );
-        alert('Statut mis à jour avec succès.');
+        alert(`Statut ${action} avec succès.`);
       } else {
         setError(response.data.message || 'Erreur lors de la mise à jour du statut.');
       }
@@ -89,17 +91,19 @@ const AdminRequests = () => {
                 <td>{request.statut}</td>
                 <td>{request.userName}</td>
                 <td>
-                  {request.statut === 'en attente' && (
-                    <div>
-                      <button onClick={() => changeRequestStatus(request.id, 'approuvée')}>Approuver</button>
-                      <button 
-                        onClick={() => changeRequestStatus(request.id, 'rejetée')} 
-                        className="reject-button"
-                      >
-                        Rejeter
-                      </button>
-                    </div>
-                  )}
+                  
+                  <button
+                    className="approve-button"
+                    onClick={() => changeRequestStatus(request.id, 'approuvée', 'Approuver')}
+                  >
+                    Approuver
+                  </button>
+                  <button
+                    className="reject-button"
+                    onClick={() => changeRequestStatus(request.id, 'rejetée', 'Rejeter')}
+                  >
+                    Rejeter
+                  </button>
                 </td>
               </tr>
             ))

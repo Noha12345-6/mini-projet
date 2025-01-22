@@ -44,5 +44,74 @@
   .reject-button:hover {
     background-color: darkred;
   }
+  .admin-requests {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .requests-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .requests-table th,
+  .requests-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .requests-table th {
+    background-color: #f2f2f2;
+    text-align: left;
+  }
+  
+  .requests-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .requests-table tr:hover {
+    background-color: #dce7d8;
+  }
+  
+  .requests-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background: linear-gradient(90deg, #1abc9c, #16a085);
+    color: white;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-right: 10px; /* Ajoute de l'espace entre les boutons */
+  }
+  
+  /* Bouton Approuver */
+  button.approve-button {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  button.approve-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+  }
+  
+  /* Bouton Rejeter */
+  button.reject-button {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  button.reject-button:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+  }
+  
   
   

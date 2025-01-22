@@ -27,25 +27,29 @@ const DemandeForm = () => {
       titre,
       description,
       user_id: userId,
+      statut: 'En attente'
     };
 
     try {
       const response = await axios.post(
-        'http://localhost/ApiDemande/api.php', 
+        'https://67575d82c0a427baf94c94da.mockapi.io/dev101/ApiDemande/apiphp/demande', 
         requestData
       );
+      console.log(response.data);
 
-      if (response.data.success) {
+      if (response.status === 201 || response.status === 200) {
         alert('Demande ajoutée avec succès !');
         setTitre('');
         setDescription('');
       } else {
-        throw new Error(response.data.message || 'Erreur inconnue.');
+        throw new Error('Erreur inattendue lors de la soumission.');
       }
     } catch (error) {
       console.error("Erreur lors de l'ajout de la demande :", error);
-      alert("Une erreur s'est produite lors de la soumission de la demande.");
+      const errorMessage = error.response?.data?.message || 'Une erreur s\'est produite.';
+      alert(errorMessage);
     }
+    
   };
 
   return (

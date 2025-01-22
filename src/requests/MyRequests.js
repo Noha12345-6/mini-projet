@@ -6,7 +6,7 @@ import './MyRequests.css';
 const MyRequests = () => {
   const [requests, setRequests] = useState([]);
   const [error, setError] = useState('');
-  const [isLoading, setIsLoading] = useState(false); 
+  const [isLoading, setIsLoading] = useState(false);
   const { userId } = useParams();
 
   useEffect(() => {
@@ -15,28 +15,31 @@ const MyRequests = () => {
       return;
     }
     setIsLoading(true);
+   
     axios
-      .get(`http://localhost/ApiDemande/api.php?action=getUserRequests&user_id=${userId}`) // URL mise à jour
+      .get(`https://67575d82c0a427baf94c94da.mockapi.io/dev101/ApiDemande/apiphp/demande?user_id=${userId}`)
       .then((response) => {
-        console.log('Réponse API:', response.data);
-        if (response.data.success && response.data.requests.length > 0) {
-          setRequests(response.data.requests);
-          setError(''); 
+       
+        if (Array.isArray(response.data)) { 
+          setRequests(response.data); 
+          setError('');
         } else {
           setError('Aucune demande trouvée pour cet utilisateur.');
         }
       })
       .catch((error) => {
+        console.error('Erreur lors de la récupération des demandes:', error);
         setError('Une erreur est survenue. Veuillez réessayer.');
       })
-      .finally(() => setIsLoading(false)); 
+      .finally(() => setIsLoading(false));
   }, [userId]);
 
   const handleDeleteRequest = (requestId) => {
     if (window.confirm('Êtes-vous sûr de vouloir supprimer cette demande ?')) {
-      axios.delete(`http://localhost/ApiDemande/api.php?action=deleteRequest&id=${requestId}`) // URL mise à jour
-        .then((response) => {
-          setRequests((prevRequests) => prevRequests.filter(request => request.id !== requestId));
+      axios
+        .delete(`https://67575d82c0a427baf94c94da.mockapi.io/dev101/ApiDemande/apiphp/demande/${requestId}`)
+        .then(() => {
+          setRequests((prevRequests) => prevRequests.filter((request) => request.id !== requestId));
           alert('La demande a été supprimée avec succès !');
         })
         .catch((error) => {
@@ -57,10 +60,10 @@ const MyRequests = () => {
             <div key={request.id} className="request-card">
               <h3>{request.titre}</h3>
               <p>{request.description}</p>
-              <p className={`status ${request.statut.replace(' ', '-').toLowerCase()}`}>Statut: {request.statut}</p>
+              <p className={`status ${request.statut?.replace(' ', '-').toLowerCase()}`}>Statut: {request.statut}</p>
               <button
                 className="delete-button"
-                onClick={() => handleDeleteRequest(request.id)} 
+                onClick={() => handleDeleteRequest(request.id)}
                 disabled={request.statut === 'Annulée'}
               >
                 Supprimer la demande
